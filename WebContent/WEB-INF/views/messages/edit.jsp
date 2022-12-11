@@ -10,5 +10,17 @@
 
         <p><a href="${pageContext.request.contextPath}/index">Return to list(一覧に戻る)</a></p>
 
+        <p><a href="#" onclick="confirmDestroy();">Delete this message (このメッセージを削除する)</a></p>
+        <form method="POST" action="${pageContext.request.contextPath}/destroy">
+            <input type="hidden" name="_token" value="${_token}" />
+        </form>
+        <script>
+        function confirmDestroy() {
+            if(confirm("Are you sure you want to delete it?(本当に削除してよろしいですか？)")) {
+                document.forms[1].submit();
+            }
+        }
+        </script>
+
     </c:param>
 </c:import>
